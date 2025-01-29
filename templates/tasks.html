@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel = "stylesheet" href = "/static/styleFinal.css">
+        <title>Tasks</title>
+    </head>
+    <body>
+        <h1 class = "heading"> All Tasks </h1>
+        {% for task in tasks %}
+        <div class = "task">
+            <h3 class = "sub-heading">{{task.title}}</h3>
+            <p class = "sub-heading">{{task.detail}}</p>
+            <form action = "/delete_task/{{task.id}}" method = "get">
+                <button type = "submit" class = "delete">Delete</button>
+            </form>
+            <form action = "/update_task/{{task.id}}" method = "get">
+                <button type = "submit" class = "delete"> Update </button>
+            </form>
+            
+        </div>
+        {% endfor %}
+        <script>
+            function show_alert()
+            {
+                window.alert("Your task has been deleted successfully!");
+            }
+        </script>
+    </body>
+</html> 
