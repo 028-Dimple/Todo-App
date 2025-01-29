@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel = "stylesheet" href = "/static/styleFinal.css">
+        <title>To Do Application</title>
+    </head>
+    <body>
+        <h1 class = "heading"> To Do Application</h1>
+        <h3 class = "sub-heading"> Update the Task </h3>
+        <div class = "container">
+            <form action = "/update_task/{{task_id}}" method = "post">
+                <label for = "title">Task Title:</label>
+                <input type = "text" name = "title" id = "title"><br> <br>
+                <label for = "detail">Task Detail: </label>
+                <textarea name = "detail"></textarea><br><br>
+                <button type = "submit" onclick="show_alert()" class = "create">Update Task</button>
+            </form>
+        </div>
+        <script>
+            function show_alert()
+            {
+                window.alert("Your task has been updated successfully!");
+            }
+        </script>
+    </body>
+</html>

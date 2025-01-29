@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.heading{
+    color: #333;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.sub-heading{
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.container{
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"], textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-right: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.create{
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 97%;
+    margin: 10px;
+}
+
+.create:hover{
+    background-color: #45a049;
+}
+
+.task{
+    display: inline-block;
+    background-color: white;
+    margin: 15px;
+    padding: 10px;
+    width: 30%;
+    align-items: center;
+}
+
+.delete{
+    background-color: #ee5050;
+    cursor: pointer;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    padding: 10px;
+    padding-bottom: 25px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: inline;
+}
+
+.delete:hover{
+    background-color: white;
+    border: 1px solid #ee5050 ;
+    color: #ee5050;  
+}
+
+.update{
+    background-color: #333;
+    color: white;
+}
+
+.icon{
+    font-size: 30px;
+    color: #15948e;
+    margin: 10px;
+}
+
+.icon:hover{
+    color: #0c6965;
+}
+
+a{
+    text-decoration: none;
+}
+
+.detail{
+    visibility: hidden;
+}
+
+.arrow{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
