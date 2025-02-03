@@ -52,10 +52,9 @@ async def load(request: Request):
     return templates.TemplateResponse(name = "index.html", context = {"request": request})
 
 
-@app.post("/create_task")
-def create_task(db: db_dependency, title: str = Form(), detail: str = Form()):
-    task = {"title":title, "detail": detail}
-    db_task = Task(**task)
+@app.post("/create_task", response_model=TaskBase)
+def create_task(db: db_dependency, task: TaskBase):
+    db_task = Task(title = task.title, detail = task.detail)
     db.add(db_task)
     db.commit()
     return RedirectResponse("/", status_code=303)

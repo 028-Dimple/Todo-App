@@ -8,22 +8,55 @@
         <h1 class = "heading"> To Do Application</h1>
         <h3 class = "sub-heading"> Create a New Task </h3>
         <div class = "container">
-            <form action = "/create_task" method = "post">
+            <form id = "taskForm">
                 <label for = "title">Task Title:</label>
                 <input type = "text" name = "title" id = "title" required><br> <br>
                 <label for = "detail">Task Detail: </label>
-                <textarea name = "detail" required></textarea><br><br>
-                <button type = "submit" onclick="show_alert()" class = "create">Create Task</button>
+                <textarea name = "detail" id = "detail" required></textarea><br><br>
+                <button type = "submit" class = "create">Create Task</button>
             </form>
             <form action = "/show_tasks" method="get">
                 <button type = "submit" class = "create">Show Tasks</button>
             </form>
         </div>
         <script>
-            function show_alert()
-            {
-                window.alert("Your task has been created successfully!");
-            }
+            document.getElementById("taskForm").addEventListener("submit", function(event) {
+    event.preventDefault();  // Prevent the default form submission
+
+    // Get the values from the form fields
+    const title = document.getElementById('title').value;
+    const detail = document.getElementById('detail').value;
+
+    // Prepare the task data to be sent in the POST request
+    const taskData = {
+        title: title,
+        detail: detail
+    };
+
+    // Send the POST request using fetch
+    fetch('/create_task', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(taskData)
+    })
+    .then(response => response.json())  // Parse the JSON response
+    .then(data => {
+        console.log('Response Data:', data);  // Log the response data
+        if (data.success) {
+            window.alert("Your task has been created successfully!");
+            document.getElementById('taskForm').reset();  // Reset the form
+        } else {
+            window.alert("Failed to create the task. Please try again.");
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);  // Log the error
+        window.alert("An error occurred. Please try again.");
+    });
+});
+
         </script>
     </body>
 </html>
